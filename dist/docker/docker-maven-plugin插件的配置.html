@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第一步：打开docker远程API端口</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.8c977ac8.css" as="style"><link rel="preload" href="/assets/js/app.8a3da7fb.js" as="script"><link rel="preload" href="/assets/js/5.0a3f5477.js" as="script"><link rel="prefetch" href="/assets/js/10.208a3fe0.js"><link rel="prefetch" href="/assets/js/11.165588d7.js"><link rel="prefetch" href="/assets/js/12.345abdd6.js"><link rel="prefetch" href="/assets/js/13.a0f39f42.js"><link rel="prefetch" href="/assets/js/14.5b0e6879.js"><link rel="prefetch" href="/assets/js/15.cbe91458.js"><link rel="prefetch" href="/assets/js/16.59ee4ed6.js"><link rel="prefetch" href="/assets/js/17.7e87ff72.js"><link rel="prefetch" href="/assets/js/18.d9257a3c.js"><link rel="prefetch" href="/assets/js/19.fca155bc.js"><link rel="prefetch" href="/assets/js/2.e4c57591.js"><link rel="prefetch" href="/assets/js/20.66b43490.js"><link rel="prefetch" href="/assets/js/21.5d9cbf40.js"><link rel="prefetch" href="/assets/js/22.cf343007.js"><link rel="prefetch" href="/assets/js/23.8a6b6bec.js"><link rel="prefetch" href="/assets/js/24.f55ff1c2.js"><link rel="prefetch" href="/assets/js/25.45a8afcd.js"><link rel="prefetch" href="/assets/js/26.277384c0.js"><link rel="prefetch" href="/assets/js/27.e1a96eba.js"><link rel="prefetch" href="/assets/js/28.9b742315.js"><link rel="prefetch" href="/assets/js/29.85462125.js"><link rel="prefetch" href="/assets/js/3.378533e8.js"><link rel="prefetch" href="/assets/js/30.84594bbe.js"><link rel="prefetch" href="/assets/js/31.c5339f48.js"><link rel="prefetch" href="/assets/js/4.3f4ce681.js"><link rel="prefetch" href="/assets/js/6.8c5f726c.js"><link rel="prefetch" href="/assets/js/7.143caf54.js"><link rel="prefetch" href="/assets/js/8.2f2c4d59.js"><link rel="prefetch" href="/assets/js/9.f7cac1d0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8c977ac8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <!----> </div> <div class="page"> <div class="content"><h2 id="第一步：打开docker远程api端口"><a href="#第一步：打开docker远程api端口" aria-hidden="true" class="header-anchor">#</a> 第一步：打开docker远程API端口</h2> <p>​我的是centos7系统，需要修改的文件是/usr/lib/systemd/system/docker.service 文件</p> <div class="language- extra-class"><pre class="language-text"><code>vim /usr/lib/systemd/system/docker.service 
+</code></pre></div><p>如下是我的配置文件，需要添加的部分是在第13-17行：ExecStart=/usr/bin/dockerd的后面加上-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock，ok之后 :wq ,保存并退出。注意的是0.0.0.0，你没看错，这样配置就行，并不是自己的主机ip</p> <div class="language- extra-class"><pre class="language-text"><code>[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target firewalld.service
+Wants=network-online.target
+
+[Service]
+Type=notify
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+
+#start add config
+
+ExecStart=/usr/bin/dockerd  -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+
+#end
+ExecReload=/bin/kill -s HUP $MAINPID
+# Having non-zero Limit*s causes performance problems due to accounting overhead
+# in the kernel. We recommend using cgroups to do container-local accounting.
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+# Uncomment TasksMax if your systemd version supports it.
+# Only systemd 226 and above support this version.
+#TasksMax=infinity
+TimeoutStartSec=0
+# set delegate yes so that systemd does not reset the cgroups of docker containers
+Delegate=yes
+# kill only the docker process, not all processes in the cgroup
+KillMode=process
+# restart the docker process if it exits prematurely
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div><h2 id="第二步：重启docker的守护进程，重启docker"><a href="#第二步：重启docker的守护进程，重启docker" aria-hidden="true" class="header-anchor">#</a> 第二步：重启docker的守护进程，重启docker</h2> <p>命令如下：</p> <p><strong>systemctl daemon-reload</strong></p> <p><strong>systemctl restart docker</strong></p> <blockquote><p>输入<code>netstat -anp|grep 2375</code> 显示docker正在监听2375端口</p> <div class="language-shell extra-class"><pre class="language-text"><code>[root@izjmd5lqoeeowpz ~]# netstat -anp|grep 2375
+tcp6       0      0 :::2375                 :::*                    LISTEN      2577/dockerd
+</code></pre></div></blockquote> <p>输入<code>curl 127.0.0.1:2375/info</code>  显示一大堆信息，证明端口已经对外开放了</p> <div class="language- extra-class"><pre class="language-text"><code>{&quot;ID&quot;:&quot;5ZCY:OFMV:ZO4J:WMQ2:OW57:76PX:VSF2:YX6W:6NKU:3YK6:5WJX:P7BT&quot;,&quot;Containers&quot;:0,&quot;ContainersRunning&quot;:0,&quot;ContainersPaused&quot;:0,&quot;ContainersStopped&quot;:0,&quot;Images&quot;:0,&quot;Driver&quot;:&quot;overlay2&quot;,&quot;DriverStatus&quot;:[[&quot;Backing Filesystem&quot;,&quot;extfs&quot;],[&quot;Supports d_type&quot;,&quot;true&quot;],[&quot;Native Overlay Diff&quot;,&quot;false&quot;]],&quot;SystemStatus&quot;:null,&quot;Plugins&quot;:{&quot;Volume&quot;:[&quot;local&quot;],&quot;Network&quot;:[&quot;bridge&quot;,&quot;host&quot;,&quot;macvlan&quot;,&quot;null&quot;,&quot;overlay&quot;],&quot;Authorization&quot;:null,&quot;Log&quot;:[&quot;awslogs&quot;,&quot;fluentd&quot;,&quot;gcplogs&quot;,&quot;gelf&quot;,&quot;journald&quot;,&quot;json-file&quot;,&quot;logentries&quot;,&quot;splunk&quot;,&quot;syslog&quot;]},&quot;MemoryLimit&quot;:true,&quot;SwapLimit&quot;:true,&quot;KernelMemory&quot;:true,&quot;CpuCfsPeriod&quot;:true,&quot;CpuCfsQuota&quot;:true,&quot;CPUShares&quot;:true,&quot;CPUSet&quot;:true,&quot;IPv4Forwarding&quot;:true,&quot;BridgeNfIptables&quot;:true,&quot;BridgeNfIp6tables&quot;:true,&quot;Debug&quot;:false,&quot;NFd&quot;:24,&quot;OomKillDisable&quot;:true,&quot;NGoroutines&quot;:44,&quot;SystemTime&quot;:&quot;2018-10-01T16:31:00.417378358+08:00&quot;,&quot;LoggingDriver&quot;:&quot;json-file&quot;,&quot;CgroupDriver&quot;:&quot;cgroupfs&quot;,&quot;NEventsListener&quot;:0,&quot;KernelVersion&quot;:&quot;3.10.0-514.26.2.el7.x86_64&quot;,&quot;OperatingSystem&quot;:&quot;CentOS Linux 7 (Core)&quot;,&quot;OSType&quot;:&quot;linux&quot;,&quot;Architecture&quot;:&quot;x86_64&quot;,&quot;IndexServerAddress&quot;:&quot;https://index.docker.io/v1/&quot;,&quot;RegistryConfig&quot;:{&quot;AllowNondistributableArtifactsCIDRs&quot;:[],&quot;AllowNondistributableArtifactsHostnames&quot;:[],&quot;InsecureRegistryCIDRs&quot;:[&quot;127.0.0.0/8&quot;],&quot;IndexConfigs&quot;:{&quot;docker.io&quot;:{&quot;Name&quot;:&quot;docker.io&quot;,&quot;Mirrors&quot;:[],&quot;Secure&quot;:true,&quot;Official&quot;:true}},&quot;Mirrors&quot;:[]},&quot;NCPU&quot;:1,&quot;MemTotal&quot;:1928933376,&quot;GenericResources&quot;:null,&quot;DockerRootDir&quot;:&quot;/var/lib/docker&quot;,&quot;HttpProxy&quot;:&quot;&quot;,&quot;HttpsProxy&quot;:&quot;&quot;,&quot;NoProxy&quot;:&quot;&quot;,&quot;Name&quot;:&quot;izjmd5lqoeeowpz&quot;,&quot;Labels&quot;:[],&quot;ExperimentalBuild&quot;:false,&quot;ServerVersion&quot;:&quot;18.06.1-ce&quot;,&quot;ClusterStore&quot;:&quot;&quot;,&quot;ClusterAdvertise&quot;:&quot;&quot;,&quot;Runtimes&quot;:{&quot;runc&quot;:{&quot;path&quot;:&quot;docker-runc&quot;}},&quot;DefaultRuntime&quot;:&quot;runc&quot;,&quot;Swarm&quot;:{&quot;NodeID&quot;:&quot;&quot;,&quot;NodeAddr&quot;:&quot;&quot;,&quot;LocalNodeState&quot;:&quot;inactive&quot;,&quot;ControlAvailable&quot;:false,&quot;Error&quot;:&quot;&quot;,&quot;RemoteManagers&quot;:null},&quot;LiveRestoreEnabled&quot;:false,&quot;Isolation&quot;:&quot;&quot;,&quot;InitBinary&quot;:&quot;docker-init&quot;,&quot;ContainerdCommit&quot;:{&quot;ID&quot;:&quot;468a545b9edcd5932818eb9de8e72413e616e86e&quot;,&quot;Expected&quot;:&quot;468a545b9edcd5932818eb9de8e72413e616e86e&quot;},&quot;RuncCommit&quot;:{&quot;ID&quot;:&quot;69663f0bd4b60df09991c08812a60108003fa340&quot;,&quot;Expected&quot;:&quot;69663f0bd4b60df09991c08812a60108003fa340&quot;},&quot;InitCommit&quot;:{&quot;ID&quot;:&quot;fec3683&quot;,&quot;Expected&quot;:&quot;fec3683&quot;},&quot;SecurityOptions&quot;:[&quot;name=seccomp,profile=default&quot;]}
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.8a3da7fb.js" defer></script><script src="/assets/js/5.0a3f5477.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对数据库的基本操作</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.8c977ac8.css" as="style"><link rel="preload" href="/assets/js/app.8a3da7fb.js" as="script"><link rel="preload" href="/assets/js/16.59ee4ed6.js" as="script"><link rel="prefetch" href="/assets/js/10.208a3fe0.js"><link rel="prefetch" href="/assets/js/11.165588d7.js"><link rel="prefetch" href="/assets/js/12.345abdd6.js"><link rel="prefetch" href="/assets/js/13.a0f39f42.js"><link rel="prefetch" href="/assets/js/14.5b0e6879.js"><link rel="prefetch" href="/assets/js/15.cbe91458.js"><link rel="prefetch" href="/assets/js/17.7e87ff72.js"><link rel="prefetch" href="/assets/js/18.d9257a3c.js"><link rel="prefetch" href="/assets/js/19.fca155bc.js"><link rel="prefetch" href="/assets/js/2.e4c57591.js"><link rel="prefetch" href="/assets/js/20.66b43490.js"><link rel="prefetch" href="/assets/js/21.5d9cbf40.js"><link rel="prefetch" href="/assets/js/22.cf343007.js"><link rel="prefetch" href="/assets/js/23.8a6b6bec.js"><link rel="prefetch" href="/assets/js/24.f55ff1c2.js"><link rel="prefetch" href="/assets/js/25.45a8afcd.js"><link rel="prefetch" href="/assets/js/26.277384c0.js"><link rel="prefetch" href="/assets/js/27.e1a96eba.js"><link rel="prefetch" href="/assets/js/28.9b742315.js"><link rel="prefetch" href="/assets/js/29.85462125.js"><link rel="prefetch" href="/assets/js/3.378533e8.js"><link rel="prefetch" href="/assets/js/30.84594bbe.js"><link rel="prefetch" href="/assets/js/31.c5339f48.js"><link rel="prefetch" href="/assets/js/4.3f4ce681.js"><link rel="prefetch" href="/assets/js/5.0a3f5477.js"><link rel="prefetch" href="/assets/js/6.8c5f726c.js"><link rel="prefetch" href="/assets/js/7.143caf54.js"><link rel="prefetch" href="/assets/js/8.2f2c4d59.js"><link rel="prefetch" href="/assets/js/9.f7cac1d0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8c977ac8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <!----> </div> <div class="page"> <div class="content"><blockquote><h2 id="数据库的基本语法"><a href="#数据库的基本语法" aria-hidden="true" class="header-anchor">#</a> 数据库的基本语法</h2></blockquote> <h3 id="对数据库的基本操作"><a href="#对数据库的基本操作" aria-hidden="true" class="header-anchor">#</a> 对数据库的基本操作</h3> <blockquote><ol><li>查看所有的数据库   <code>show databases</code></li> <li>创建数据库 <code>create database dbname</code></li> <li>删除数据库 <code>drop database dbname</code></li> <li>查看所有的数据库 <code>show databases</code></li></ol></blockquote> <h3 id="对数据表的基本操作"><a href="#对数据表的基本操作" aria-hidden="true" class="header-anchor">#</a> 对数据表的基本操作</h3> <ol><li><blockquote><p>​	创建表</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>
+	columnname <span class="token keyword">type</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">)</span>
+</code></pre></div></blockquote></li> <li><blockquote><p>​	删除表</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">drop</span> <span class="token keyword">table</span> tablename<span class="token punctuation">;</span>
+</code></pre></div></blockquote></li> <li><blockquote><p>​	查看表的结构</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">desc</span> tablename<span class="token punctuation">;</span>
+</code></pre></div></blockquote></li> <li><blockquote><p>​	查看表的创建语法</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">show</span> <span class="token keyword">create</span> <span class="token keyword">table</span> tablename<span class="token punctuation">;</span>
+</code></pre></div></blockquote></li> <li><blockquote><p>​	查看所有表</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span>
+</code></pre></div></blockquote></li></ol> <p>添加列</p> <div class="language-mysql extra-class"><pre class="language-text"><code>alter table tb_name  add [column]  name type ;
+</code></pre></div><p>删除列</p> <div class="language-mysql extra-class"><pre class="language-text"><code>alter table tb_name drop [column] name;
+</code></pre></div><p>添加索引</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">alter</span> <span class="token keyword">table</span> tb_name <span class="token keyword">add</span> <span class="token keyword">index</span> <span class="token punctuation">(</span>name<span class="token punctuation">(</span>length<span class="token punctuation">)</span> ads<span class="token operator">|</span><span class="token keyword">desc</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>更改列的类型</p> <div class="language-mysql extra-class"><pre class="language-text"><code>alter table tb_name modify column name type;  
+</code></pre></div><p>更改表名</p> <div class="language-mysql extra-class"><pre class="language-text"><code>alter table tb_name rename newatblename;
+</code></pre></div><p>添加主键</p> <div class="language-mysql extra-class"><pre class="language-text"><code>alter table tb_name add primary key (name);
+</code></pre></div><p>删除主键</p> <div class="language-mysql extra-class"><pre class="language-text"><code>alter table tb_name drop primary key
+</code></pre></div><p>添加外键</p> <div class="language-mysql extra-class"><pre class="language-text"><code>alter table tb_name add foreign key(name) references othertbanme(key); 
+</code></pre></div><p>创建视图</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">create</span> <span class="token keyword">view</span>  v_name  <span class="token keyword">as</span> <span class="token keyword">select</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+</code></pre></div><p>创建存储函数</p> <div class="language-mysql extra-class"><pre class="language-text"><code>create function fname(name char(5)) 
+	returns char(10)
+	declare  cursorname  cursor for select_staement; 
+	declare name int|varchar;
+begin
+	return select &quot;hello&quot;;
+end 
+</code></pre></div><p>创建存储过程</p> <div class="language-mysql extra-class"><pre class="language-text"><code>create procedure panme(in name int)
+begin
+	sql ;
+end 
+</code></pre></div><p>创建触发器</p> <div class="language-mysql extra-class"><pre class="language-text"><code>create trigger tname 
+	after|before  insert|update|delete  
+	on tablename
+begin
+	sql
+end
+</code></pre></div><p>创建用户</p> <div class="language-mysql extra-class"><pre class="language-text"><code>create user &quot;username&quot;@&quot;host&quot; IDENTIFIED by &quot;password&quot;;
+</code></pre></div><p>删除用户</p> <div class="language-mysql extra-class"><pre class="language-text"><code>drop user &quot;username&quot;@&quot;host&quot;;
+</code></pre></div><p>用户授权</p> <div class="language-mysql extra-class"><pre class="language-text"><code>grant all on *.* to &quot;username&quot;@&quot;host&quot; with grnat option;
+</code></pre></div><p>撤销用户权限</p> <div class="language-mysql extra-class"><pre class="language-text"><code>revoke all on *.* from &quot;username&quot;@&quot;host&quot;;
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.8a3da7fb.js" defer></script><script src="/assets/js/16.59ee4ed6.js" defer></script>
+  </body>
+</html>
