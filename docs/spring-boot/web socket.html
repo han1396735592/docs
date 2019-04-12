@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>spring boot 使用web socket</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.8c977ac8.css" as="style"><link rel="preload" href="/assets/js/app.28568def.js" as="script"><link rel="preload" href="/assets/js/23.8a6b6bec.js" as="script"><link rel="prefetch" href="/assets/js/10.208a3fe0.js"><link rel="prefetch" href="/assets/js/11.165588d7.js"><link rel="prefetch" href="/assets/js/12.345abdd6.js"><link rel="prefetch" href="/assets/js/13.a0f39f42.js"><link rel="prefetch" href="/assets/js/14.5b0e6879.js"><link rel="prefetch" href="/assets/js/15.cbe91458.js"><link rel="prefetch" href="/assets/js/16.59ee4ed6.js"><link rel="prefetch" href="/assets/js/17.7e87ff72.js"><link rel="prefetch" href="/assets/js/18.d9257a3c.js"><link rel="prefetch" href="/assets/js/19.fca155bc.js"><link rel="prefetch" href="/assets/js/2.e4c57591.js"><link rel="prefetch" href="/assets/js/20.66b43490.js"><link rel="prefetch" href="/assets/js/21.5d9cbf40.js"><link rel="prefetch" href="/assets/js/22.cf343007.js"><link rel="prefetch" href="/assets/js/24.f55ff1c2.js"><link rel="prefetch" href="/assets/js/25.45a8afcd.js"><link rel="prefetch" href="/assets/js/26.277384c0.js"><link rel="prefetch" href="/assets/js/27.e1a96eba.js"><link rel="prefetch" href="/assets/js/28.9b742315.js"><link rel="prefetch" href="/assets/js/29.85462125.js"><link rel="prefetch" href="/assets/js/3.378533e8.js"><link rel="prefetch" href="/assets/js/30.84594bbe.js"><link rel="prefetch" href="/assets/js/31.c5339f48.js"><link rel="prefetch" href="/assets/js/4.3f4ce681.js"><link rel="prefetch" href="/assets/js/5.0a3f5477.js"><link rel="prefetch" href="/assets/js/6.8c5f726c.js"><link rel="prefetch" href="/assets/js/7.143caf54.js"><link rel="prefetch" href="/assets/js/8.2f2c4d59.js"><link rel="prefetch" href="/assets/js/9.f7cac1d0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8c977ac8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <!----> </div> <div class="page"> <div class="content"><h2 id="spring-boot-使用web-socket"><a href="#spring-boot-使用web-socket" aria-hidden="true" class="header-anchor">#</a> spring boot 使用web socket</h2> <ol><li>导入依赖</li></ol> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-websocket<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ol start="2"><li>添加配置</li></ol> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@EnableWebSocket</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WebSocketConfig</span> <span class="token keyword">implements</span> <span class="token class-name">WebSocketConfigurer</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">registerWebSocketHandlers</span><span class="token punctuation">(</span>WebSocketHandlerRegistry registry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        registry<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span><span class="token function">myHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;/test&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> WebSocketHandler <span class="token function">myHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">TestSockerHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="3"><li>处理socket</li></ol> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestSockerHandler</span> <span class="token keyword">extends</span> <span class="token class-name">TextWebSocketHandler</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">handleTextMessage</span><span class="token punctuation">(</span>WebSocketSession session<span class="token punctuation">,</span> TextMessage message<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.28568def.js" defer></script><script src="/assets/js/23.8a6b6bec.js" defer></script>
+  </body>
+</html>
