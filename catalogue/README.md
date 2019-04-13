@@ -11,10 +11,10 @@ sidebar: auto
 
 ## mysql
 
-- [数据库的基本语法](mysql/数据库的基本语法.md)
-- [计算机二级考试的基本问题](mysql/计算机二级考试的基本问题.md)
-- [mysql的常用单词.md](mysql/mysql的常用单词.md)
-- [mysql操作php的相关函数.md](mysql/mysql操作php的相关函数.md)
+- [数据库的基本语法](../mysql/数据库的基本语法.md)
+- [计算机二级考试的基本问题](../mysql/计算机二级考试的基本问题.md)
+- [mysql的常用单词.md](../mysql/mysql的常用单词.md)
+- [mysql操作php的相关函数.md](../mysql/mysql操作php的相关函数.md)
 
 ## java
 
@@ -22,7 +22,7 @@ sidebar: auto
 
 ## docker
 
-### [docker的安装](.../docker/docker的安装.md)
+### [docker的安装](../docker/docker的安装.md)
 
 ### [springboot部署到远程docker容器](../docker/springboot部署到远程docker容器.md)
 
@@ -33,6 +33,14 @@ sidebar: auto
 
 
 ## spring boot 
+
+## `spring boot` 使用的说明
+
+[spring boot 的两种使用方法](../spring-boot/spring boot 的两种使用方法.md)
+
+[spring boot 的常见问题](../spring-boot/spring boot 常见问题.md)
+
+[web socket 的使用方法](../spring-boot/web socket.md)
 
 ## spring cloud
 

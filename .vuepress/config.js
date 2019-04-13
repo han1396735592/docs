@@ -1,6 +1,7 @@
 ﻿// .vuepress/config.js
 module.exports = {
   themeConfig: {
+     sidebar: 'auto',
     nav: [
       { text: 'Home', link: '/' },
       { text: '目录', link: '/catalogue/' },
