@@ -4,7 +4,7 @@ vuepress build
 mv .vuepress/dist .
 mv dist docs
 echo 'docs.github.qqhxj.cn' > docs/CNAME
-git init
+# git init
 git add .
 git commit -m 'deploy'
 
