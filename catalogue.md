@@ -27,6 +27,16 @@ sidebar: auto
 
 ## docker
 
+###   [docker的安装](./docker/docker的安装.md)
+### [springboot部署到远程docker容器](./docker/springboot部署到远程docker容器.md)
+
+### [docker-maven-plugin插件的配置](./docker/docker-maven-plugin插件的配置.md)
+
+
+
+
+
+
 
 ## spring boot 
 
