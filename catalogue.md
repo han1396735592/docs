@@ -1,7 +1,5 @@
 ---
 editLink: true
-prev: ./docker
-next: ./docker/README
 sidebar: auto
 ---
 
