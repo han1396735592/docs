@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /hero.png
+heroImage: /hero.pngvue
 actionText: 目录 →
 actionLink: catalogue
 features:

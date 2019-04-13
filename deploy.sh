@@ -1,6 +1,6 @@
 rm -rf docs
-vuepress build 
 
+vuepress build 
 # 导航到构建输出目录
 mv .vuepress/dist .
 mv dist docs
