@@ -1,5 +1,5 @@
 ---
-editLink: true
+ditLink: true
 sidebar: auto
 ---
 
@@ -12,13 +12,13 @@ sidebar: auto
 ## mysql
 
 
-- [数据库的基本语法](../mysql/数据库的基本语法.md)
+- [数据库的基本语法](mysql/数据库的基本语法.md)
 
-- [计算机二级考试的基本问题](../mysql/计算机二级考试的基本问题.md)
+- [计算机二级考试的基本问题](mysql/计算机二级考试的基本问题.md)
 
-- [mysql的常用单词](../mysql/mysql的常用单词.md)
+- [mysql的常用单词.md](mysql/mysql的常用单词.md)
 
-- [mysql操作php的相关函数](../mysql/mysql操作php的相关函数.md)
+- [mysql操作php的相关函数.md](mysql/mysql操作php的相关函数.md)
 
 
 ## java
