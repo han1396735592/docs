@@ -1,6 +1,5 @@
 ---
 sidebar: auto
-
 title: docker
 ---
 

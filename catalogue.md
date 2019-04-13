@@ -1,3 +1,31 @@
+---
+editLink: true
+prev: ./docker
+next: ./docker/README
+sidebar: auto
+---
+
+# 目录
+
+## mysql
+
+- [数据库的基本语法](mysql/数据库的基本语法.md)
+
+- [计算机二级考试的基本问题](mysql/计算机二级考试的基本问题.md)
+
+- [mysql的常用单词.md](mysql/mysql的常用单词.md)
+
+- [mysql操作php的相关函数.md](mysql/mysql操作php的相关函数.md)
+
+
+## spring boot 
+
+
+
+
+
+
+
 ## 目录
 
 > #  	这是我的笔记 

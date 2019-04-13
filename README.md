@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.png
 actionText: 目录 →
-actionLink: mulu
+actionLink: catalogue
 features:
 - title: 简明优先
   details: 对以 markdown 为中心的项目结构，做最简化的配置，帮助你专注于创作。
@@ -11,4 +11,5 @@ features:
 - title: 性能高效
   details: VuePress 将每个页面生成为预渲染的静态 HTML，每个页面加载之后，然后作为单页面应用程序(SPA)运行。
 footer: MIT Licensed | Copyright © 2018-present Evan You
+editLink: true
 ---
