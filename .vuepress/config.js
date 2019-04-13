@@ -1,9 +1,9 @@
-// .vuepress/config.js
+﻿// .vuepress/config.js
 module.exports = {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: '目录', link: '/catalogue' },
+      { text: '目录', link: '/catalogue/' },
     ], // 假定 GitHub。也可以是一个完整的 GitLab URL。
     repo: 'han1396735592/docs',
     // 自定义项目仓库链接文字

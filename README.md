@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.pngvue
 actionText: 目录 →
-actionLink: catalogue
+actionLink: /catalogue/
 features:
 - title: 简明优先
   details: 对以 markdown 为中心的项目结构，做最简化的配置，帮助你专注于创作。
