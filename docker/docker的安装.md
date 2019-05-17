@@ -1,10 +1,8 @@
----
-ditLink: true
-sidebar: auto
----
 
 
-## docker 的安装
+
+# docker 的安装
+
 ## 1. CentOS 7 (使用yum进行安装)
 
 ```shell

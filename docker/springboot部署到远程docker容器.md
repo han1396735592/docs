@@ -1,9 +1,5 @@
----
-ditLink: true
-sidebar: auto
----
 
-### springboot部署到远程docker容器.md
+# springboot部署到远程docker容器.md
 
 ## 1. 创建一个springboot项目
 

@@ -1,7 +1,5 @@
----
-ditLink: true
-sidebar: auto
----
+# docker-maven-plugin插件的配置
+
 ## 第一步：打开docker远程API端口
 
 我的是centos7系统，需要修改的文件是/usr/lib/systemd/system/docker.service 文件
