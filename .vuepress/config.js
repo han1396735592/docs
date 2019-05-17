@@ -4,13 +4,6 @@ module.exports = {
 	description: '我的学习笔记',
 	themeConfig: {
 		sidebar: [{
-				title: '目录',
-				collapsable: false,
-				children: [
-					'/',
-				]
-			},
-			{
 				title: 'mysql',
 				collapsable: true,
 				children: [
@@ -40,7 +33,7 @@ module.exports = {
 					'/linux/Ubuntu更换阿里云软件源',
 					'/linux/win10如何使用ubuntu子系统'
 				]
-			},{
+			}, {
 				title: 'docker',
 				collapsable: true,
 				children: [
@@ -49,23 +42,23 @@ module.exports = {
 					'/docker/springboot部署到远程docker容器',
 					'/docker/docker-maven-plugin插件的配置'
 				]
-			},{
+			}, {
 				title: 'spring boot',
 				collapsable: true,
 				children: [
-					
+
 				]
-			},{
+			}, {
 				title: 'spring mvc',
 				collapsable: true,
 				children: [
-					
+
 				]
-			},{
+			}, {
 				title: '其他',
 				collapsable: true,
 				children: [
-					
+
 				]
 			}
 		],
