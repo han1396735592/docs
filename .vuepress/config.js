@@ -7,13 +7,12 @@ module.exports = {
 				title: 'mysql',
 				collapsable: true,
 				children: [
-					// '/mysql/',
-					"/mysql/mysql操作php的相关函数",
-					"/mysql/mysql的常用单词",
 					'/mysql/数据库的基本语法',
+					'/mysql/计算机二级考试的基本问题',
+					"/mysql/mysql的常用单词",
+					"/mysql/mysql操作php的相关函数",
+					'/mysql/忘记密码',
 					"/mysql/安装问题",
-					'/mysql/忘记密码'
-
 				]
 			},
 			{
@@ -28,7 +27,6 @@ module.exports = {
 				title: 'linux',
 				collapsable: true,
 				children: [
-					// '/linux/',
 					'/linux/无密登录',
 					'/linux/Ubuntu更换阿里云软件源',
 					'/linux/win10如何使用ubuntu子系统'
@@ -37,7 +35,6 @@ module.exports = {
 				title: 'docker',
 				collapsable: true,
 				children: [
-					// '/docker/',
 					'/docker/docker的安装',
 					'/docker/springboot部署到远程docker容器',
 					'/docker/docker-maven-plugin插件的配置'
@@ -46,6 +43,9 @@ module.exports = {
 				title: 'spring boot',
 				collapsable: true,
 				children: [
+					'spring-boot/springboot的两种使用方法',
+					'spring-boot/springboot常见问题',
+					'spring-boot/websocket'
 
 				]
 			}, {

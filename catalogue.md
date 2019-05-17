@@ -21,6 +21,11 @@
 
 ## linux
 
+### [无密登录](linux/无密登录)
+### [Ubuntu更换阿里云软件源](linux/Ubuntu更换阿里云软件源)
+### [win10如何使用ubuntu子系统](linux/win10如何使用ubuntu子系统)
+
+
 ## docker
 
 ### [docker的安装](docker/docker的安装.md)
