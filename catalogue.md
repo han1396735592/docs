@@ -48,6 +48,8 @@
 
 [web socket的使用方法](spring-boot/websocket.md)
 
+[spring boot发送邮件](spring-boot/springboot发送邮件.md)
+
 ## spring cloud
 
 ## other

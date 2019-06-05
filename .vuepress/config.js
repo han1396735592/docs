@@ -48,8 +48,8 @@ module.exports = {
 				children: [
 					'spring-boot/springboot的两种使用方法',
 					'spring-boot/springboot常见问题',
-					'spring-boot/websocket'
-
+					'spring-boot/websocket',
+					'spring-boot/springboot发送邮件'
 				]
 			}, {
 				title: 'spring mvc',
