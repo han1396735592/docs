@@ -23,9 +23,12 @@ module.exports = {
 			{
 				title: 'java',
 				collapsable: true,
-				children: []
-			},
+				children: [
+					'java/base/catalogue',
+					'java/strengthen/catalogue',
 
+				]
+			},
 			{
 				title: 'linux',
 				collapsable: true,
