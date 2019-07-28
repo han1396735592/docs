@@ -1,9 +1,5 @@
-// .vuepress/config.js
-//import sidebar1 from "./sidebar1.js"
-
-let sidebar1 = require('./sidebar1.js')
+﻿let sidebar1 = require('./sidebar1.js')
 let sidebar2 = require('./sidebar2.js')
-console.log(sidebar2);
 
 module.exports = {
 	title: 'My study notes',
