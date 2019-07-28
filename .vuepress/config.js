@@ -4,7 +4,7 @@ let sidebar2 = require('./sidebar2.js')
 module.exports = {
 	title: 'My study notes',
 	description: '我的学习笔记',
-	dest:docs,
+	dest: './docs',
 	markdown:{
 		lineNumbers:true
 	},
