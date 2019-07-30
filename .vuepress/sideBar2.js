@@ -10,10 +10,13 @@ const commonCatalogue =  {
 		['/mysql/','mysql'],
 		['/stm32/','stm32'],
 		['/spring-cloud/','spring-cloud'],
-		['/other/','other']
+		['/other/','other'],
 	]
 }
+
+
 module.exports = {
+	
 	'/java/':[commonCatalogue,
 	],
 	'/spring-cloud/':[commonCatalogue],
@@ -22,17 +25,22 @@ module.exports = {
 	],'/springmvc/':[
 		commonCatalogue,
 	],
-	'/catalogue':[
-		commonCatalogue,
-	],
+	
 	'/stm32/':[
 		commonCatalogue,
 	],
 	'/docker/':[
-		commonCatalogue,
+		commonCatalogue,{
+			title:'docker',
+			collapsable:true,
+			children:[
+				['/docker/docker的安装','docker的安装'],
+				['/docker/命令大全','docker命令大全'],
+			]
+		}
 	],
 	'/other/':[
-		commonCatalogue
+		commonCatalogue,
 	],
 	'/mysql/':[
 		commonCatalogue,{
@@ -59,5 +67,10 @@ module.exports = {
 				['/spring-boot/springboot发送邮件','springboot发送邮件']
 			]
 		}
-	]
+	],'/catalogue':[
+		commonCatalogue,
+	],
+	'/log':{
+		commonCatalogue
+	},
 }

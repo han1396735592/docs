@@ -1,4 +1,4 @@
-﻿let sidebar1 = require('./sidebar1.js')
+let sidebar1 = require('./sidebar1.js')
 let sidebar2 = require('./sidebar2.js')
 
 module.exports = {
@@ -18,6 +18,9 @@ module.exports = {
 			{
 				text: '目录',
 				link: '/catalogue'
+			},{
+				text: '日志',
+				link: '/log'
 			},
 		], // 假定 GitHub。也可以是一个完整的 GitLab URL。
 		repo: 'han1396735592/docs',
