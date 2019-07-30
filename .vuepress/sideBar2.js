@@ -70,7 +70,7 @@ module.exports = {
 	],'/catalogue':[
 		commonCatalogue,
 	],
-	'/log':{
+	'/log':[
 		commonCatalogue
-	},
+	]
 }
