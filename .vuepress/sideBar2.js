@@ -11,13 +11,20 @@ const commonCatalogue =  {
 		['/stm32/','stm32'],
 		['/spring-cloud/','spring-cloud'],
 		['/other/','other'],
+		['/dubbo/','dubbo']
 	]
 }
 
 
 module.exports = {
 	
-	'/java/':[commonCatalogue,
+	'/java/':[commonCatalogue,{
+		title:'java',
+			collapsable:true,
+			children:[
+				['/java/java浏览器打开网页','java浏览器打开网页'],
+			]
+		}
 	],
 	'/spring-cloud/':[commonCatalogue],
 	'/linux/':[
