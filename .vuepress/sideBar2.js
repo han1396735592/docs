@@ -1,4 +1,4 @@
-const commonCatalogue =  {
+﻿const commonCatalogue =  {
 	title:'总目录',
 	collapsable: true,
 	children: [
@@ -71,7 +71,9 @@ module.exports = {
 				["/spring-boot/springboot的两种使用方法","springboot的两种使用方法"],
 				['/spring-boot/springboot常见问题','springboot常见问题'],
 				['/spring-boot/websocket','websocket'],
-				['/spring-boot/springboot发送邮件','springboot发送邮件']
+				['/spring-boot/springboot发送邮件','springboot发送邮件'],
+				['springboot定时任务','springboot定时任务'],
+				['springboot使用Quartz实现动态配置定时任务','springboot使用Quartz实现动态配置定时任务']
 			]
 		}
 	],'/catalogue':[
