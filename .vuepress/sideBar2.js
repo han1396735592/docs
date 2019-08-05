@@ -1,4 +1,4 @@
-﻿const commonCatalogue =  {
+const commonCatalogue =  {
 	title:'总目录',
 	collapsable: true,
 	children: [
@@ -11,7 +11,8 @@
 		['/stm32/','stm32'],
 		['/spring-cloud/','spring-cloud'],
 		['/other/','other'],
-		['/dubbo/','dubbo']
+		['/dubbo/','dubbo'],
+		['/interview/','面试题']
 	]
 }
 
@@ -81,5 +82,13 @@ module.exports = {
 	],
 	'/log':[
 		commonCatalogue
+	],'/interview/':[
+		commonCatalogue,{
+			title: '面试题',
+			collapsable: true,
+			children: [
+				['/interview/1-阿里巴巴/','阿里巴巴'],
+			]
+		}
 	]
 }

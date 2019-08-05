@@ -9,7 +9,7 @@ module.exports = {
 		lineNumbers:true
 	},
 	themeConfig: {
-
+		// displayAllHeaders: true ,// 默认值：false
 		sidebar: sidebar2,
 		nav: [{
 				text: '主页',
