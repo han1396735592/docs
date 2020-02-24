@@ -1,6 +1,7 @@
-rm -rf docs
+# rm -rf docs
 
-vuepress build 
+# vuepress build 
+deploy-oss.sh
 # 导航到构建输出目录
 # mv .vuepress/dist .
 # mv dist docs
