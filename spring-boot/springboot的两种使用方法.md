@@ -12,9 +12,9 @@
 ```xml
 <！ - 继承默认值为Spring Boot  - > 
 <parent> 
-	<groupId> org.springframework.boot </ groupId> 
-	<artifactId> spring-boot-starter-parent </ artifactId> 
-	<version> 2.0.5.RELEASE < / version> 
+	<groupId>org.springframework.boot</ groupId> 
+	<artifactId>spring-boot-starter-parent</artifactId> 
+	<version>2.0.5.RELEASE</version> 
 </parent>
 ```
 
