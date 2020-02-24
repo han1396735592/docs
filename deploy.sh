@@ -1,12 +1,12 @@
 rm -rf docs
 
-# vuepress build 
-# ./deploy-oss.sh
+vuepress build 
+./deploy-oss.sh
 # 导航到构建输出目录
 # mv .vuepress/dist .
 # mv dist docs
-# echo 'docs.github.qqhxj.cn' > docs/CNAME
-# git init
+echo 'docs.github.qqhxj.cn' > docs/CNAME
+git init
 git add .
 git commit -m "deploy on $(date)  by han1396735592 "
 
