@@ -12,6 +12,9 @@ module.exports = {
 		// displayAllHeaders: true ,// 默认值：false
 		sidebar: sidebar2,
 		nav: [{
+				text: '快速站点',
+				link: 'http://docs.qqhxj.cn'
+			},{
 				text: '主页',
 				link: '/'
 			},
