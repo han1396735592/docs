@@ -1,5 +1,4 @@
 # nginx
 
-## nginx与其他服务器的区别
-
-## nginx的优势在哪里
+## [nginx的安装](nginx的安装.md)
+## [nginx配置反向代理](nginx配置反向代理.md)
