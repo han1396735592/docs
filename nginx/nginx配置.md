@@ -2,7 +2,6 @@
 
 ## 配置https
 
-1. 在 `/etc/nginx/conf.d` 新建文件 `meal.api.qqhxj.cn.conf`
 配置以下内容
 ```
 server
@@ -22,8 +21,6 @@ server
 
 ## 配置反向代理
 
-1. 在 `/etc/nginx/conf.d` 新建文件 `*.conf` 如 `baidu.com.conf` 配置以下内容
-
 ```
 server
 {
@@ -39,7 +36,6 @@ server
 
 ## 解决跨域问题
 
-在对用的 `*.conf`配置以下内容
 ```
 server
  {
@@ -68,4 +64,29 @@ server
      }
 
  }
+```
+
+## 配置负载均衡
+
+
+```
+//举例，以下IP，端口无效
+upstream testhost{ 
+	server 127.0.0.1:8080 weight=1; 
+	server 127.0.0.1:8081 down; 		//down 表示单前的server临时不參与负载.
+	server 127.0.0.1:8082 backup;		//backup： 其他全部的非backup机器down或者忙的时候，
+									//请求backup机器。所以这台机器压力会最轻  
+	server 127.0.0.1:8083 weight=2; 	//weight 默觉得1.weight越大，负载的权重就越大
+}
+server
+{
+
+    listen 80;
+    server_name host;
+    error_page 404 /404.html;
+    location / {
+        proxy_pass http://testhost;
+    }
+
+}
 ```
