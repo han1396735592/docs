@@ -40,7 +40,7 @@ server
 server
  {
      listen 80;
-     server_name alert.test.qqhxj.cn;
+     server_name www.host.com;
      proxy_set_header Host $host;                
      error_page 404 /404.html;
      location / {

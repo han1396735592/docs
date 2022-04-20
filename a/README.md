@@ -29,6 +29,6 @@
 
 ## vue
 
-> | [antdv](http://antdv.com) | [awesome-vue](https://github.com/vuejs/awesome-vue) |      |      |      |      |
+> | [antdv](http://antdv.com) | [awesome-vue](https://github.com/vuejs/awesome-vue) |[vue-codemirror](https://github.com/surmon-china/vue-codemirror)      |      |      |      |
 > | ------------------------- | --------------------------------------------------- | ---- | ---- | ---- | ---- |
 > |                           |                                                     |      |      |      |      |
